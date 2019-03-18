@@ -1,0 +1,23 @@
+<html>
+<head>
+<style>#demo{background-color: yellow;left:1000px;}</style>
+<title>Welcome to my page</title>
+</head>
+<body>
+<h1>My First Web Page</h1>
+<p>Enter Your First Name :</p><input type="text" id="fname" /></br>
+<p>Enter Your Last Name :</p><input type="text" id="lname" /></br>
+<button  onclick="fulname();" >click</button>
+<p id="demo" ></p>
+<script>
+function fulname()
+{
+a=document.getElementById("fname").value;
+b=document.getElementById("lname").value;
+document.innerHTML= a+b;
+document.getElementById("demo").innerHTML= a+b;
+
+}
+</script>
+</body>
+</html>

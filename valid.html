@@ -1,0 +1,115 @@
+<html>
+<head>
+<title>RegisterForm</title>
+</head>
+<body>
+<form name="RegForm" action="/submit.php" onsubmit="return validation()" method="post" bgcolor="lightyelllow">
+<center><table border="0" bgcolor="lightyellow">
+<tr>
+	<td>Name :</td>
+	<td><input type="text" name="name" id="Name" size="20" /></td>
+</tr>
+<tr>
+	<td>Age :</td>
+	<td><input type="text" name="age" id="Age" size="20" /></td>
+</tr>
+<tr>
+	<td>Gender :</td>
+	<td><input type="radio" name="gender" value="Male" size="10" >Male</input><input type="radio" name="gender" value="Female"  size="10">Female</input></td>
+</tr>
+<tr>
+	<td>Address :</td>
+	<td><textarea name="address" id="Ad" cols="50" row="40"  ></textarea></td>
+</tr>
+<tr>
+	<td>State :</td>
+	<td><select name="state" id="state">
+		<option value="0" selected>select</option>
+		<option value="1">Kerala</option>
+		<option value="2">Karnataka</option>
+		<option value="3">AndraPradesh</option>				
+		<option value="4">Tamilnadu</option>		
+		</select>
+		</td>
+</tr>
+<tr>
+	<td>Mobile No :</td>
+	<td><input type="text" name="mobile" id="Mobile" size="20" /></td>
+</tr>
+<tr>
+	<td>E-mail Id:</td>
+	<td><input type="email" name="email" id="E-mail" /></td>
+</tr>
+<tr>
+	<td colspan="2" align="center"><input type="submit" name="signup" value="signup" /></td>
+</tr>
+</table></center></form>
+<script type="text/javascript"> 
+function validation()
+{	
+	var name=document.getElementById("Name").value;
+	var age=document.getElementById("Age").value;
+	var gender=document.getElementsByName("gender");
+	var address=document.getElementById("Ad").value;
+	var state=document.getElementById("State").value;
+	var str=state.options[state.selectedIndex].value;
+	var phone=document.getElementById("Mobile").value;
+	var Email=document.getElementById("E-mail").value;	
+	if(name =="")
+	{
+		window.alert("Please enter your name.");
+		name.focus();
+		return false;
+	}
+	else{
+		for(i=0;i<name.length;i++){
+		if(!((name.charAt(i)>='a' && name.charAt(i)<='z')||(name.charAt(i)>='A' && name.charAt(i)<='Z'))){
+		window.alert("Please enter valid Name.");
+		name.focus();
+		return false;
+			}
+		}
+	}	
+	if(age =="")
+	{
+		window.alert("Please enter your Age.");
+		age.focus();
+		return false;
+	}
+	if(gender =="")
+	{
+		window.alert("Please select your gender.");
+		password.focus();
+		return false;
+	}
+
+	if(address=="")
+	{
+		window.alert("Please enter your Adress.");
+		Address.focus();
+		return false;
+	}
+	if(state =="")
+	{
+		window.alert("Please select your state.");
+		sub.focus();
+		return false;
+	}
+	if(phone =="")
+	{
+		window.alert("Please enter your Telephone number.");
+		phone.focus();
+		return false;
+	}
+	if(Email =="")
+	{
+		window.alert("Please enter your E-mail id.");
+		Email.focus();
+		return false;
+	}
+	return true;
+
+} 
+</script>
+</body>
+</html>

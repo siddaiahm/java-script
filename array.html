@@ -1,0 +1,40 @@
+<html>
+<head>
+<title>Welcome to my page</title>
+</head>
+<body>
+<h1>My First Web Page</h1>
+<p>Input Array:</p>
+<p id="inputarray"></p>
+<p>Sorted Array:</p>
+<p id="demo">My Id</p>
+</br><input type="text" id="ke"/><button onclick="search1();">Search</button>
+<p>Search Element:</p>
+<p id="key1"></p>
+<script type="text/javascript">
+a = new Array();
+n = prompt("Enter the size of an array");
+for(i=0;i<n;i++)
+{
+a[i]=prompt("Enter "+i+" element");
+}
+document.getElementById("inputarray").innerHTML= a
+
+document.getElementById("demo").innerHTML= a.sort()
+function search1()
+{
+var k=document.getElementById("ke").value;
+for(i=0;i<5;i++)
+{
+	if(a[i]==k){
+	document.getElementById("key1").innerHTML= "Element found at " +i
+	}
+	else{
+	document.getElementById("key1").innerHTML= "Element not  found "
+	}
+
+}
+}
+</script>
+</body>
+</html>

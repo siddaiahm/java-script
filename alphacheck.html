@@ -1,0 +1,44 @@
+<html>
+<head>
+<title>Welcome</title>
+</head>
+<body bgcolor="yellow">
+<center>
+<input type="text" name="alpha"/>
+<input type="button" value="submit" onclick="alphacheck();"/>
+</center>
+<script type="text/javascript">
+function alphacheck()
+{
+var s=prompt("Enter character");
+/*s=document.getElementbyId("alpha");*/
+switch(s)
+{
+	case 'A':
+	case 'a':
+		alert("this letter is vowel "+ s);
+		break;
+	case 'E':
+	case 'e':
+		alert("this letter is vowel "+ s);
+		break;
+
+	case 'I':
+	case 'i':
+		alert("this letter is vowel "+ s);
+		break;
+	case 'O':
+	case 'o':
+		alert("this letter is vowel "+ s);
+		break;
+	case 'U':
+	case 'u':
+		alert("this letter is vowel "+ s);
+		break;
+	default:alert("is not vowel "+s);
+		break;
+}
+}
+</script>
+</body>
+</html>
