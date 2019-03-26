@@ -1,0 +1,223 @@
+<html>
+<head>
+<title>RegisterForm</title>
+</head>
+<body>
+<form name="myForm" action="/html.html" onsubmit="return validateForm()" method="post" bgcolor="yellow">
+<center><table border="0" bgcolor="lightyellow">
+<tr>
+	<td>Name :</td>
+	<td><input type="text" id="Name" min="3" max="10" /></td>
+</tr>
+<tr>
+	<td>Age :</td>
+	<td><input type="text" id="Age" max="100" /></td>
+</tr>
+<tr>
+	<td>Gender :</td>
+	<td><input type="radio" name="gender" value="Male" focused>Male</input><input type="radio" name="gender" value="Female"  >Female</input><input type="radio" name="gender" value="other" >Other</input></td>
+</tr>
+<tr>
+	<td>Year of birth :</td>
+	<td><input type="int" id="Dob" max="4"  /></td>
+</tr>
+
+<tr>
+	<td>Address :</td>
+	<td><textarea name="address" id="Ad" cols="30" row="3" ></textarea></td>
+</tr>
+<tr>
+	<td>Mobile :</td>
+	<td><input type="text" id="Mobile" max="10" /></td>
+</tr>
+<tr>
+	<td>State :</td>
+	<td><select  id="state">
+		<option value="0" selected>Karnataka</option>
+		<option value="1">Kerala</option>
+		<option value="2">AndraPradesh</option>				
+		<option value="3">Tamilnadu</option>		
+		</select>
+		</td>
+</tr>
+<tr>
+	<td>E-mail Id:</td>
+	<td><input type="email"  id="Email" /></td>
+</tr>
+<tr>
+	<td>UID:</td>
+	<td><p id="email1"></p></td>
+</tr>
+<tr>
+	<td align="top">Password:</td>
+	<td align="bottom"><input type="password"  id="pass1" /><br/>
+	<p>* Should be greater than 8 Character.<br/>*atleast one number.<br/>* special character should be included</p><p id="disp"></p></td>
+   
+</tr>
+<tr>
+	<td>Confirm Password:</td>
+	<td><input type="password"  id="pass2" /><p id="disp1"></p></td>
+	
+</tr>
+<tr>
+	<td align="center"><input type="submit" id="submit" value="submit" /></td>
+	<td align="center"><button type="reset"  />Reset</td>
+</tr>
+</table></center></form>
+
+
+
+
+
+
+<script type="text/javascript"> 
+function validateForm()
+{	
+	var name=document.getElementById("Name").value;
+	var age=document.getElementById("Age").value;
+	var gender=document.getElementsByName("gender");
+	dob=document.getElementById("Dob").value;
+	var address=document.getElementById("Ad").value;
+ var phone=document.getElementById("Mobile").value;
+ var str1=state.options[state.selectedIndex].value;
+	var email=document.getElementById("Email").value;	
+	var password=document.getElementById("pass1").value;	
+	var password1=document.getElementById("pass2").value;	
+	if(name =="")
+	{
+		window.alert("Please enter your name.");
+		//name.focus();
+		return false;
+	}
+	else{
+		for(i=0;i<name.length;i++){
+		if(!((name.charAt(i)>='a' && name.charAt(i)<='z')||(name.charAt(i)>='A' && name.charAt(i)<='Z'))){
+		window.alert("Please enter valid Name.");
+		//name.focus();
+		return false;
+			}
+		}
+	}	
+	if(age =="")
+	{
+		window.alert("Please enter your Age.");
+		//age.focus();
+		return false;
+	}
+	else{
+		if(!(age>=20 && age<=80)){
+		window.alert("Please enter valid Age.");
+		//age.focus();
+		return false;
+		}
+		
+	}
+	if(gender =="")
+	{
+		window.alert("Please select your gender.");
+		//password.focus();
+		return false;
+	}
+	if(dob =="")
+	{
+		window.alert("Please select your gender.");
+		//password.focus();
+		return false;
+	}
+	else{
+		age1=2019 - dob;
+		if(age !=age1){
+		window.alert("Your age and DOB year not matching.");
+		//password.focus();
+		return false;
+		}
+	}
+
+	if(address=="")
+	{
+		window.alert("Please enter your Adress.");
+		//address.focus();
+		return false;
+	}
+	if(phone =="")
+	{
+		window.alert("Please enter your Telephone number.");
+		//phone.focus();
+		return false;
+	}
+	else{
+		if(phone.length <10 || phone.length>10 || +phone.isNaN){
+			window.alert("Please enter your valid Telephone number.");
+			//phone.focus();
+			return false;
+			}
+	}
+	if(str1 =="")
+	{
+		window.alert("Please select your state.");
+		//str1.focus();
+		return false;
+	}
+	
+	if(email =="")
+	{
+		window.alert("Please enter your E-mail id.");
+		//email.focus();
+		return false;
+	}
+	else {
+		if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email))
+  		{ 	
+		document.getElementById("email1").innerHTML=email
+    		}
+		else{    		
+		alert("You have entered an invalid email address!");
+    		return false;
+		}
+	}
+  if(password  =="")
+	{
+		window.alert("Please enter password.");
+		//password.focus();
+		return false;
+	}
+	else{
+		if(!(password.length>=8)){
+		window.alert("Please enter valid password.");
+		//password.focus();
+		return false;
+			}
+		else{
+		if(/^\w+([\.-]?\w+)*w+([\.-]?\w+)*(w{2,3})+$/.test(password)){	
+      window.alert("Please enter valid password.");
+		//password.focus();
+		return false;
+		}
+		else{
+			document.getElementById("disp").innerHTML="strong"
+		}
+			}
+		}
+	if(password1  =="")
+	{
+		window.alert("Please confirm your password.");
+		//passowrd1.focus();
+		return false;
+	}
+	else{
+		if(password != password1 ){
+			var s="Not matched"
+				document.getElementById("disp1").innerHTML=s
+		return false;
+		}
+		else{
+			s="strong"
+			document.getElementById("disp1").innerHTML=s
+		
+		}
+	}
+	return true;
+} 
+</script>
+</body>
+</html>
